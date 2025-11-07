@@ -1,1 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Sederhana</title>
+</head>
+<body>
+  <script>
+    // Meminta input angka pertama
+    let angka1 = prompt("Masukkan angka pertama:");
+    if (angka1 === null) {
+      alert("Dibatalkan oleh pengguna.");
+    } else {
+      angka1 = parseFloat(angka1);
+      if (isNaN(angka1)) {
+        alert("Input pertama bukan angka!");
+      } else {
+        // Meminta operator
+        let operator = prompt("Masukkan operator (+, -, *, /):");
+        if (operator === null) {
+          alert("Dibatalkan oleh pengguna.");
+        } else {
+          // Meminta angka kedua
+          let angka2 = prompt("Masukkan angka kedua:");
+          if (angka2 === null) {
+            alert("Dibatalkan oleh pengguna.");
+          } else {
+            angka2 = parseFloat(angka2);
+            if (isNaN(angka2)) {
+              alert("Input kedua bukan angka!");
+            } else {
+              let hasil;
 
+              // Proses perhitungan
+              switch (operator) {
+                case '+':
+                  hasil = angka1 + angka2;
+                  break;
+                case '-':
+                  hasil = angka1 - angka2;
+                  break;
+                case '*':
+                  hasil = angka1 * angka2;
+                  break;
+                case '/':
+                  if (angka2 === 0) {
+                    alert("Error: Tidak bisa membagi dengan nol!");
+                    hasil = null;
+                  } else {
+                    hasil = angka1 / angka2;
+                  }
+                  break;
+                default:
+                  alert("Operator tidak valid! Gunakan +, -, *, atau /");
+                  hasil = null;
+              }
+
+              if (hasil !== null) {
+                alert(`Hasil dari ${angka1} ${operator} ${angka2} adalah = ${hasil}`);
+              }
+            }
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
